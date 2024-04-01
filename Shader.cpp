@@ -19,8 +19,10 @@ std::string get_file_contents(const char* filename)
 
 Shader::Shader(const char* VertexShader, const char* FragmentShader) {
 
-    const char* vertex_source = get_file_contents("C:/Users/HP/Source/Repos/PiratesEngine/ShaderSrc/default.vert").c_str();
-    const char* frag_source = get_file_contents("C:/Users/HP/Source/Repos/PiratesEngine/ShaderSrc/default.frag").c_str();
+    std::string s = get_file_contents(VertexShader);
+    std::string f = get_file_contents(FragmentShader);
+    const char* vertex_source = s.c_str();
+    const char* frag_source = f.c_str();
     
     // Vertex
     unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
