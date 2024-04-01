@@ -42,7 +42,7 @@ int main()
     glm::mat4 proj{1.0f};
     // build and compile our shader program
     // ------------------------------------
-    Shader ourShader((char*)std::filesystem::absolute(L"ShaderSrc/default.vert").c_str(), (char*)std::filesystem::absolute(L"ShaderSrc/default.frag").c_str()); // you can name your shader files however you like
+    Shader ourShader("ShaderSrc/default.vert", "ShaderSrc/default.frag"); // you can name your shader files however you like
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
