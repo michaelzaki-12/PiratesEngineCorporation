@@ -25,11 +25,13 @@ Shader::~Shader()
 {
 }
 
-void Shader::Init(const char* VertexShader, const char* FragmentShader)
+void Shader::Init(const char* VertexShader, const char* FragmentShader, const char* GeomtryShader)
 {
 
     std::string s = get_file_contents(VertexShader);
     std::string f = get_file_contents(FragmentShader);
+    std::string g;
+    const char* geom_source = nullptr;
     const char* vertex_source = s.c_str();
     const char* frag_source = f.c_str();
 
@@ -44,15 +46,26 @@ void Shader::Init(const char* VertexShader, const char* FragmentShader)
     glShaderSource(fragmentShader, 1, &frag_source, NULL);
     glCompileShader(fragmentShader);
     checkCompileErrors(fragmentShader, "FRAGMENT");
-
+    unsigned int geometryShader;
+    
     // shader Program
     ID = glCreateProgram();
     glAttachShader(ID, vertexShader);
+    if (GeomtryShader != nullptr) {
+        g = get_file_contents(GeomtryShader);
+        const char* geom_source = g.c_str();
+        geometryShader = glCreateShader(GL_GEOMETRY_SHADER);
+        glShaderSource(geometryShader, 1, &geom_source, NULL);
+        glCompileShader(geometryShader);
+        checkCompileErrors(geometryShader, "GEOMTRY");
+        glAttachShader(ID, geometryShader);
+    }
     glAttachShader(ID, fragmentShader);
     glLinkProgram(ID);
     checkCompileErrors(ID, "PROGRAM");
     // delete the shaders as they're linked into our program now and no longer necessary
     glDeleteShader(vertexShader);
+    glDeleteShader(geometryShader);
     glDeleteShader(fragmentShader);
 }
 
@@ -102,9 +115,9 @@ void Shader::setVec2(const std::string& name, float x, float y) const
 {
     glUniform2f(glGetUniformLocation(ID, name.c_str()), x, y);
 }
-void Shader::setVec3(const std::string& name, float x, float y, float z) const
+void Shader::setVec3(const std::string& name,glm::vec3 v) const
 {
-    glUniform3f(glGetUniformLocation(ID, name.c_str()), x, y, z);
+    glUniform3f(glGetUniformLocation(ID, name.c_str()), v.x, v.y, v.z);
 }
 void Shader::setVec4(const std::string& name, float x, float y, float z, float w) const
 {

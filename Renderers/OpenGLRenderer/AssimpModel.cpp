@@ -128,8 +128,12 @@ std::vector<Texture> AssimpModel::loadMaterialTextures(aiMaterial* mat, aiTextur
         if (!skip)
         {   // if texture hasn't been loaded already, load it
             Texture texture;
-            texture.id = TextureFromFile(str.C_Str(), directory, true);
             texture.type = typeName;
+            if(texture.type == "texture_specular")
+                texture.id = TextureFromFile(str.C_Str(), this->directory, false);
+            else
+                texture.id = TextureFromFile(str.C_Str(), this->directory, true);
+
             texture.path = str.C_Str();
             textures.push_back(texture);
             textures_loaded.push_back(texture); // add to loaded textures
@@ -150,16 +154,29 @@ unsigned int AssimpModel:: TextureFromFile(const char* path, const std::string& 
     unsigned char* data = stbi_load(filename.c_str(), &width, &height, &nrComponents, 0);
     if (data)
     {
-        GLenum format{};
-        if (nrComponents == 1)
-            format = GL_RED;
-        else if (nrComponents == 3)
-            format = GL_RGB;
-        else if (nrComponents == 4)
-            format = GL_RGBA;
+        GLenum format{}, internalformat{};
+        if (nrComponents == 1) {
+            internalformat = format = GL_RED;
+        }
+
+        if (nrComponents == 3) {
+            if (gamma == true) {
+                internalformat = GL_SRGB;
+                format = GL_RGB;
+            }else
+                internalformat = format = GL_RGB;
+        }
+        
+        if (nrComponents == 4) {
+            if (gamma == true) {
+                internalformat = GL_SRGB_ALPHA;
+                format = GL_RGBA;
+            }else
+                internalformat = format = GL_RGBA;
+        }
 
         glBindTexture(GL_TEXTURE_2D, textureID);
-        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+        glTexImage2D(GL_TEXTURE_2D, 0, internalformat, width, height, 0, format, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
 
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);

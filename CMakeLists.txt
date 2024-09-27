@@ -21,8 +21,9 @@ set(ASSIMP_INSTALL OFF CACHE BOOL "Assimp install" FORCE)
 set(ASSIMP_INSTALL_PDB OFF CACHE BOOL "Assimp install PDB" FORCE)
 
 add_subdirectory(assimp)
+#find_package(assimp::assimp)
 include_directories( assimp/include/assimp
-                    C:/dev/libs/assimp/build/include)
+                   C:/dev/libs/assimp/build/include)
 
 add_subdirectory(glfw-3.4)
 
@@ -31,9 +32,11 @@ add_executable(PiratesEngine "Engine.cpp" "glad/glad.c" "Engine.h" "Renderers/Op
 "Renderers/OpenGLRenderer/Shader.h" "stb_image.h" "Deps/Camera.h" "Deps/Camera.cpp" "Renderers/OpenGLRenderer/VAO.h" 
 "Renderers/OpenGLRenderer/VAO.cpp" "Renderers/OpenGLRenderer/VBO.h" "Renderers/OpenGLRenderer/VBO.cpp" "Renderers/OpenGLRenderer/Texture.cpp" 
 "Renderers/OpenGLRenderer/Texture.h"  "imgui-docking/backends/imgui_impl_glfw.cpp" "imgui-docking/backends/imgui_impl_opengl3.cpp" "imgui-docking/imgui.cpp" 
-"imgui-docking/imgui_draw.cpp" "imgui-docking/imgui_demo.cpp" "imgui-docking/imgui_tables.cpp" "imgui-docking/imgui_widgets.cpp" "PiratesEngineLoader/gltfLoader.cpp" "PiratesEngineLoader/gltfLoader.h" "json.h" "Renderers/OpenGLRenderer/Mesh.h" "Renderers/OpenGLRenderer/Mesh.cpp" "Renderers/OpenGLRenderer/IBO.h" "Renderers/OpenGLRenderer/IBO.cpp" "PiratesEngineLoader/Model.cpp" "PiratesEngineLoader/Model.h" "Renderers/OpenGLRenderer/AssimpModel.h" "Renderers/OpenGLRenderer/AssimpModel.cpp" "stb_write_image.h")
+"imgui-docking/imgui_draw.cpp" "imgui-docking/imgui_demo.cpp" "imgui-docking/imgui_tables.cpp" "imgui-docking/imgui_widgets.cpp" "PiratesEngineLoader/gltfLoader.cpp" "PiratesEngineLoader/gltfLoader.h" "json.h" "Renderers/OpenGLRenderer/Mesh.h" "Renderers/OpenGLRenderer/Mesh.cpp" "Renderers/OpenGLRenderer/IBO.h" "Renderers/OpenGLRenderer/IBO.cpp" "PiratesEngineLoader/Model.cpp" "PiratesEngineLoader/Model.h" "Renderers/OpenGLRenderer/AssimpModel.h" "Renderers/OpenGLRenderer/AssimpModel.cpp" "stb_write_image.h" "PCH.hpp")
 
-target_link_libraries(PiratesEngine PRIVATE glfw assimp) #add assimp later
+
+target_link_libraries(PiratesEngine glfw assimp) #add assimp later
+target_precompile_headers(PiratesEngine PRIVATE "PCH.hpp")
 set_target_properties(
     PiratesEngine PROPERTIES
     VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")

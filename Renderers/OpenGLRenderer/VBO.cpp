@@ -20,5 +20,5 @@ void VBO::Bind(std::vector<Vertex> data) const
 
 void VBO::UnBind() const
 {
-	glDeleteVertexArrays(1, &ID);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
 }

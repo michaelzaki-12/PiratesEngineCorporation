@@ -4,7 +4,12 @@ out vec4 FragColor;
 in vec2 TexCoords;
 
 uniform sampler2D texture_diffuse1;
+uniform bool gamma;
 void main(){
-    vec4 TexColor = texture(texture_diffuse1, TexCoords);
-    FragColor = TexColor; // set all 4 vector values to 1.0
+    vec3 TexColor = texture(texture_diffuse1, TexCoords).rgb;
+    
+    if(gamma == true)
+        TexColor = pow(TexColor, vec3(1.0 / 2.2));
+        
+    FragColor = vec4(TexColor, 1.0); // set all 4 vector values to 1.0
 }

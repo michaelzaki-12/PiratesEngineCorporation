@@ -9,7 +9,7 @@ class Shader {
 public:
 	Shader();
 	~Shader();
-	void Init(const char* VertexShader, const char* FragmentShader);
+	void Init(const char* VertexShader, const char* FragmentShader,const char* GeomtryShader = nullptr);
 	void use();
 	unsigned int  ID;
 
@@ -17,7 +17,7 @@ public:
 	void setInt(const std::string& name, int value) const;
 	void setFloat(const std::string& name, float value) const;
 	void setVec2(const std::string& name, float x, float y) const;
-	void setVec3(const std::string& name, float x, float y, float z) const;
+	void setVec3(const std::string& name, glm::vec3 v) const;
 	void setVec4(const std::string& name, float x, float y, float z, float w) const;
 	void setMat2(const std::string& name, const glm::mat2 mat) const;
 	void setMat3(const std::string& name, const glm::mat3 mat) const;
