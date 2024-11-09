@@ -37,6 +37,10 @@ void Mesh::Draw(Shader& shader)
         glUniform1i(glGetUniformLocation(shader.ID, (name + number).c_str()), i);
         // and finally bind the texture
         glBindTexture(GL_TEXTURE_2D, textures[i].id);
+        if (i == 2) {
+            glUniform1i(glGetUniformLocation(shader.ID, "depthmap"), 2);
+            glBindTexture(GL_TEXTURE_CUBE_MAP, textures[2].id);
+        }
     }
 
     // draw mesh
