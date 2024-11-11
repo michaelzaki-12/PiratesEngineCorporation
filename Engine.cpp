@@ -129,9 +129,9 @@ int main()
     AssimpModel Model("plane/scene.gltf");
 
 
-    ///stbi_set_flip_vertically_on_load(true);
-    ///AssimpModel BackPack("backpack/backpack.obj");
-    ///stbi_set_flip_vertically_on_load(false);
+    //stbi_set_flip_vertically_on_load(true);
+    //AssimpModel BackPack("backpack/backpack.obj");
+    //stbi_set_flip_vertically_on_load(false);
 
     float skyboxVertices[] = {
         // positions          
@@ -314,7 +314,7 @@ int main()
     //texture
     Texture floortexture;
     floortexture.LoadTexture("wood.png");
-    floortexture.GenerateTexture(0, GL_CLAMP_TO_EDGE, true);
+    floortexture.GenerateTexture(0, GL_REPEAT, true);
     floortexture.Bind(0);
 
     unsigned int captureFBO, captureRBO;
@@ -447,24 +447,6 @@ int main()
     // -----------
     double xpos, ypos;
     int glfwwidth = 0, glfwheight = 0;
-    ourShader.use();
-    ourShader.setInt("material.texture_diffuse1", 0);
-    ourShader.setInt("material.texture_specular1", 1);
-    ourShader.setInt("material.depthMap", 2);
-    //ourShader.setInt("depthMap", 2);
-
-
-    skybox.use();
-    skybox.setInt("skybox", 0);
-
-    IMGUI_CHECKVERSION();
-    ImGui::CreateContext();
-    ImGuiIO& io = ImGui::GetIO();
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
-    io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
-    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;         // IF using Docking Branch
-    io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
-    glViewport(0, 0, Width, Height);
 
     glm::mat4 captureProjection = glm::perspective(glm::radians(90.0f), 1.0f, 0.1f, 10.0f);
     glm::mat4 captureViews[] =
@@ -491,7 +473,6 @@ int main()
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
     hdrskybox.use();
     hdrskybox.setInt("equirectangularMap", 0);
     hdrskybox.setMat4("projection", captureProjection);
@@ -509,14 +490,15 @@ int main()
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
     }
+
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
     Framebuffer.use();
-    Framebuffer.setInt("texture_diffuse1", 0);
+    Framebuffer.setInt("text_diffuse1", 0);
 
-
+    glViewport(0, 0, Width, Height);
     // configure depth map FBO
 // -----------------------
-    unsigned int SHADOW_WIDTH = 1024, SHADOW_HEIGHT = 1024;
+    const unsigned int SHADOW_WIDTH = 1024, SHADOW_HEIGHT = 1024;
     unsigned int depthMapFBO;
     glGenFramebuffers(1, &depthMapFBO);
     // create depth texture
@@ -525,7 +507,7 @@ int main()
     glBindTexture(GL_TEXTURE_CUBE_MAP, depthCubeMap);
     for (unsigned int i = 0; i < 6; ++i) {
         glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_DEPTH_COMPONENT,
-            SHADOW_WIDTH, SHADOW_HEIGHT, 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
+            SHADOW_WIDTH, SHADOW_HEIGHT, 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);        
     }
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
@@ -535,6 +517,7 @@ int main()
     // attach depth texture as FBO's depth buffer
     glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
     glFramebufferTexture(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, depthCubeMap, 0);
+    glClear(GL_DEPTH_BUFFER_BIT);
     glDrawBuffer(GL_NONE);
     glReadBuffer(GL_NONE);
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -547,10 +530,16 @@ int main()
     glViewport(0, 0, scrWidth, scrHeight);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
+    float near_plane = 1.0f;
+    float far_plane = 25.0f;
+    //glm::vec3 lightPos(0.0f, 4.0f, -1.0f);
+
+    ourShader.use();
+    ourShader.setInt("texture_diffuse1", 0);
+    ourShader.setInt("texture_specular1", 1);
+    ourShader.setInt("depthMap", 2);
 
     // Setup Platform/Renderer backends
-    ImGui_ImplGlfw_InitForOpenGL(window, true);          // Second param install_callback=true will install GLFW callbacks and chain to existing ones.
-    ImGui_ImplOpenGL3_Init();
     while (!glfwWindowShouldClose(window)){
         float currentFrame = (float)glfwGetTime();
         deltaTime = currentFrame - lastFrame;
@@ -571,7 +560,7 @@ int main()
             glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D_MULTISAMPLE, textureColorBufferMultiSampled, 0);
             
             glBindRenderbuffer(GL_RENDERBUFFER, rbo);
-            glRenderbufferStorageMultisample(GL_RENDERBUFFER, 8, GL_DEPTH32F_STENCIL8, Width, Height);
+            glRenderbufferStorageMultisample(GL_RENDERBUFFER, 8, GL_DEPTH24_STENCIL8, Width, Height);
             glBindRenderbuffer(GL_RENDERBUFFER, 0);
             glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, rbo);
 
@@ -579,19 +568,13 @@ int main()
             glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, Width, Height, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
 
         }
-        ImGui_ImplGlfw_NewFrame();
-        ImGui_ImplOpenGL3_NewFrame();
-        ImGui::NewFrame();
-        ImGui::ShowDemoWindow();
-        //glStencilFunc(GL_EQUAL, 1, 0xFF);
+        glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
         glfwGetCursorPos(window, &xpos, &ypos);
         camera.ProcessKeyboard(window, deltaTime);
 
         camera.ProcessMouseMovement(window, xpos, ypos);
 
-        float near_plane = 1.0f;
-        float far_plane = 25.0f;
-        //glm::vec3 lightPos(0.0f, 4.0f, -1.0f);
         glm::mat4 shadowProjection = glm::perspective(glm::radians(90.0f), (float)SHADOW_WIDTH / (float)SHADOW_HEIGHT, near_plane, far_plane);
         std::vector<glm::mat4> shadowTransforms;
         shadowTransforms.emplace_back(shadowProjection *
@@ -606,7 +589,8 @@ int main()
             glm::lookAt(lightPos, lightPos + glm::vec3(0.0, 0.0, 1.0), glm::vec3(0.0, -1.0, 0.0)));
         shadowTransforms.emplace_back(shadowProjection *
             glm::lookAt(lightPos, lightPos + glm::vec3(0.0, 0.0, -1.0), glm::vec3(0.0, -1.0, 0.0)));
-
+        
+        
         glViewport(0, 0, SHADOW_WIDTH, SHADOW_HEIGHT);
         glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
         glClear(GL_DEPTH_BUFFER_BIT);
@@ -614,6 +598,7 @@ int main()
         SimpleShader.use();
         for (unsigned int i = 0; i < 6; ++i) {
             SimpleShader.setMat4("shadowMatrices[" + std::to_string(i) + "]", shadowTransforms[i]);
+            glClear(GL_DEPTH_BUFFER_BIT);
         }
         SimpleShader.setVec3("lightPos", lightPos);
         SimpleShader.setFloat("far_plane", far_plane);
@@ -622,7 +607,7 @@ int main()
         model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));	// it's a bit too big for our scene, so scale it down
         model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.0f, 0.0f));
         SimpleShader.setMat4("model", model);
-        //Model.Draw(SimpleShader);
+        Model.Draw(SimpleShader);
 
         model = glm::mat4(1.0f);
         model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f)); // translate it down so it's at the center of the scene
@@ -641,7 +626,6 @@ int main()
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
         glViewport(0, 0, Width, Height);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
         glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
@@ -691,7 +675,7 @@ int main()
 
         ourShader.setMat4("model", model);
 
-        //Model.Draw(ourShader);
+        Model.Draw(ourShader);
 
         model = glm::mat4(1.0f);
         model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f)); // translate it down so it's at the center of the scene
@@ -703,10 +687,10 @@ int main()
         glActiveTexture(GL_TEXTURE2);
         glBindTexture(GL_TEXTURE_CUBE_MAP, depthCubeMap);
         glDrawArrays(GL_TRIANGLES, 0, 6);
-        glActiveTexture(GL_TEXTURE0);
 
         model = glm::mat4(1.0f);
         model = glm::translate(model, glm::vec3(0.0, 1.0, 0.0));
+        
         ourShader.use();
         ourShader.setMat4("model", model);
         glBindVertexArray(Boxvao);
@@ -714,7 +698,6 @@ int main()
         glActiveTexture(GL_TEXTURE2);
         glBindTexture(GL_TEXTURE_CUBE_MAP, depthCubeMap);
         glDrawArrays(GL_TRIANGLES, 0, 36);
-        glActiveTexture(GL_TEXTURE0);
 
         // convert HDR equirectangular environment map to cubemap equivalent
         glDepthFunc(GL_LEQUAL);
@@ -725,8 +708,8 @@ int main()
         view = glm::mat4(glm::mat3(camera.GetViewMatrix()));
         hdrskybox.setMat4("view", view);
         glBindVertexArray(skybox2vao);
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_CUBE_MAP, envCubemap);
+        //glActiveTexture(GL_TEXTURE0);
+        //glBindTexture(GL_TEXTURE_CUBE_MAP, envCubemap);
         glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
         glDepthFunc(GL_LESS);
@@ -736,7 +719,6 @@ int main()
         glBlitFramebuffer(0, 0, Width, Height, 0, 0, Width, Height, GL_COLOR_BUFFER_BIT, GL_NEAREST);
         
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
         glDisable(GL_DEPTH_TEST);
 
 
@@ -762,27 +744,15 @@ int main()
             stbi_write_png("my_png_file.png", width, height, nrChannels, buffer.data(), stride);
         }
 
-        ImGui::Render();
-        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-        if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
-        {
-            ImGui::UpdatePlatformWindows();
-            ImGui::RenderPlatformWindowsDefault();
-            // TODO for OpenGL: restore current GL context.
-            glfwMakeContextCurrent(window);
-        }
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
-        glfwSwapInterval(1);
+        //glfwSwapInterval(1);
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
     // optional: de-allocate all resources once they've outlived their purpose:
     // ------------------------------------------------------------------------
-    ImGui_ImplOpenGL3_Shutdown();
-    ImGui_ImplGlfw_Shutdown();
-    ImGui::DestroyContext();
 
     // glfw: terminate, clearing all previously allocated GLFW resources.
     // ------------------------------------------------------------------

@@ -39,8 +39,8 @@ void Texture::GenerateTexture(int index, int param, bool gamma)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, param);	// set texture wrapping to GL_REPEAT (default wrapping method)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, param);
     // set texture filtering parameters
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
     if (data)
     {
         if (nrChannels == 1)
@@ -81,8 +81,8 @@ void Texture::GenerateTexturefromFrameBuffer(int index, int param)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, param);	// set texture wrapping to GL_REPEAT (default wrapping method)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, param);
     // set texture filtering parameters
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
     if (data)
     {
         //glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
@@ -98,6 +98,7 @@ void Texture::GenerateTexturefromFrameBuffer(int index, int param)
 void Texture::LoadTexture(std::string path_of_texture)
 {
     data = stbi_load(path_of_texture.c_str(), &width, &height, &nrChannels, 4);
+    std::cout << "Texture Width : " << width << "\n" << "Texture Height: " << height;
 }
 
 

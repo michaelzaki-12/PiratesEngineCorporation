@@ -3,10 +3,10 @@ out vec4 FragColor;
 
 in vec2 TexCoords;
 
-uniform sampler2D texture_diffuse1;
+uniform sampler2D text_diffuse1;
 uniform bool gamma;
 void main(){
-    vec3 TexColor = texture(texture_diffuse1, TexCoords).rgb;
+    vec3 TexColor = texture(text_diffuse1, TexCoords).rgb;
     
     if(gamma == true)
         TexColor = pow(TexColor, vec3(1.0 / 2.2));
