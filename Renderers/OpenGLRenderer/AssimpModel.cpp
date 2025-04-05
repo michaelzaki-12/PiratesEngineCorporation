@@ -50,9 +50,9 @@ Mesh AssimpModel::processMesh(aiMesh* mesh, const aiScene* scene)
 
     for (unsigned int i = 0; i < mesh->mNumVertices; i++)
     {
-        Vertex vertex;
+        Vertex vertex{};
         // process vertex positions, normals and texture coordinates
-        glm::vec3 vector;
+        glm::vec3 vector{};
         vector.x = mesh->mVertices[i].x;
         vector.y = mesh->mVertices[i].y;
         vector.z = mesh->mVertices[i].z;

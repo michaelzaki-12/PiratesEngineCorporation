@@ -17,7 +17,8 @@ public:
 	void LoadTexture(std::string path_of_texture);
 	void CubeMap(std::vector<std::string> faces, int index);
 	unsigned int loadCubemap(std::vector<std::string> faces);
-	unsigned int loadHDREquiRectangularMap(std::vector<std::string> hdrimage);
+	unsigned int loadHDREquiRectangularMap(std::string& hdrimage);
+	unsigned int loadHDREquiRectangularMap(std::string hdrimage[]);
 	void FreeTexture();
 	std::vector<unsigned int> ID = std::vector<unsigned int>(16);
 	unsigned int id;

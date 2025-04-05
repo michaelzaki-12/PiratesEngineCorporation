@@ -18,7 +18,15 @@ void Texture::Bind(int index)
     case 1:
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, ID[index]);
-
+    case 2:
+        glActiveTexture(GL_TEXTURE2);
+        glBindTexture(GL_TEXTURE_2D, ID[index]);
+    case 3:
+        glActiveTexture(GL_TEXTURE3);
+        glBindTexture(GL_TEXTURE_2D, ID[index]);
+    case 4:
+        glActiveTexture(GL_TEXTURE4);
+        glBindTexture(GL_TEXTURE_2D, ID[index]);
     }
 }
 void Texture::BindCubeMap(int index)
@@ -43,17 +51,18 @@ void Texture::GenerateTexture(int index, int param, bool gamma)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
     if (data)
     {
-        if (nrChannels == 1)
+        switch (nrChannels) 
+        {
+        case 1:
             internalformat = format = GL_RED;
-        if (nrChannels == 3) {
+        case 3:
             if (gamma == true) {
-                format = GL_RGBA;
-                internalformat = GL_SRGB_ALPHA;
+                format = GL_RGB;
+                internalformat = GL_SRGB;
             }else
-                internalformat = format = GL_RGBA;
+                internalformat = format = GL_RGB;
 
-        }
-        if (nrChannels == 4) {
+        case 4:
             if (gamma == true) {
                 format = GL_RGBA;
                 internalformat = GL_SRGB_ALPHA;
@@ -63,7 +72,7 @@ void Texture::GenerateTexture(int index, int param, bool gamma)
         //glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
         glTexImage2D(GL_TEXTURE_2D, 0, internalformat, width, height, 0, format, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
-    }
+        }
     else
     {
         std::cout << "Failed to load texture" << std::endl;
@@ -167,7 +176,32 @@ unsigned int Texture::loadCubemap(std::vector<std::string> faces) {
 
     return ID[0];
 }
-unsigned int Texture::loadHDREquiRectangularMap(std::vector<std::string> hdrimage)
+unsigned int Texture::loadHDREquiRectangularMap(std::string& hdrimage)
+{
+    stbi_set_flip_vertically_on_load(true);
+    int width, height, nrComponents;
+    float* data = stbi_loadf(hdrimage.c_str(), &width, &height, &nrComponents, 0);
+    if (data)
+    {
+        glGenTextures(1, &ID[0]);
+        glBindTexture(GL_TEXTURE_2D, ID[0]);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB16F, width, height, 0, GL_RGB, GL_FLOAT, data);
+
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+        stbi_image_free(data);
+    }
+    else
+    {
+        std::cout << "Failed to load HDR image." << std::endl;
+    }
+    return ID[0];
+}
+
+unsigned int Texture::loadHDREquiRectangularMap(std::string hdrimage[])
 {
     stbi_set_flip_vertically_on_load(true);
     int width, height, nrComponents;

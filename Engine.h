@@ -1,1 +1,2 @@
-#include "Shader.h"
+#pragma once
+#include "Renderers/OpenGLRenderer/Shader.h"

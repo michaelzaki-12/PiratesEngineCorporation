@@ -2,8 +2,9 @@
 in vec4 FragPos;
 
 uniform vec3 lightPos;
-uniform float far_plane;
 
+uniform float far_plane;
+uniform int NR_Light;
 void main()
 {             
     // get distance between fragment and light source

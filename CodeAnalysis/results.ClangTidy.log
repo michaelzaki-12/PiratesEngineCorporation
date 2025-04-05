@@ -1,0 +1,359 @@
+1 warning generated.
+9 warnings generated.
+16 warnings generated.
+20 warnings generated.
+20 warnings generated.
+20 warnings generated.
+28 warnings generated.
+28 warnings generated.
+28 warnings generated.
+30 warnings generated.
+36 warnings generated.
+36 warnings generated.
+36 warnings generated.
+36 warnings generated.
+36 warnings generated.
+38 warnings generated.
+42 warnings generated.
+53 warnings generated.
+68 warnings generated.
+73 warnings generated.
+74 warnings generated.
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\context.c:408:10: warning: Call to function 'sscanf' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'sscanf_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  408 |     if (!sscanf(version, "%d.%d.%d",
+      |          ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\context.c:408:10: note: Call to function 'sscanf' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'sscanf_s' in case of C11
+  408 |     if (!sscanf(version, "%d.%d.%d",
+      |          ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\init.c:98:5: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+   98 |     memset(&_glfw.callbacks, 0, sizeof(_glfw.callbacks));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\init.c:98:5: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+   98 |     memset(&_glfw.callbacks, 0, sizeof(_glfw.callbacks));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\init.c:139:5: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  139 |     memset(&_glfw, 0, sizeof(_glfw));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\init.c:139:5: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+  139 |     memset(&_glfw, 0, sizeof(_glfw));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\init.c:235:5: warning: Call to function 'strcpy' is insecure as it does not provide bounding of the memory buffer. Replace unbounded copy functions with analogous functions that support length arguments such as 'strlcpy'. CWE-119 [clang-analyzer-security.insecureAPI.strcpy]
+  235 |     strcpy(result, source);
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\init.c:235:5: note: Call to function 'strcpy' is insecure as it does not provide bounding of the memory buffer. Replace unbounded copy functions with analogous functions that support length arguments such as 'strlcpy'. CWE-119
+  235 |     strcpy(result, source);
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\init.c:263:20: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  263 |             return memset(block, 0, count * size);
+      |                    ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\init.c:263:20: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+  263 |             return memset(block, 0, count * size);
+      |                    ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\init.c:319:9: warning: Call to function 'vsnprintf' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'vsnprintf_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  319 |         vsnprintf(description, sizeof(description), format, vl);
+      |         ^~~~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\init.c:319:9: note: Call to function 'vsnprintf' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'vsnprintf_s' in case of C11
+  319 |         vsnprintf(description, sizeof(description), format, vl);
+      |         ^~~~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\init.c:375:5: warning: Call to function 'strcpy' is insecure as it does not provide bounding of the memory buffer. Replace unbounded copy functions with analogous functions that support length arguments such as 'strlcpy'. CWE-119 [clang-analyzer-security.insecureAPI.strcpy]
+  375 |     strcpy(error->description, description);
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\init.c:375:5: note: Call to function 'strcpy' is insecure as it does not provide bounding of the memory buffer. Replace unbounded copy functions with analogous functions that support length arguments such as 'strlcpy'. CWE-119
+  375 |     strcpy(error->description, description);
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\init.c:391:5: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  391 |     memset(&_glfw, 0, sizeof(_glfw));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\init.c:391:5: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+  391 |     memset(&_glfw, 0, sizeof(_glfw));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\init.c:481:9: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  481 |         memset(&_glfwInitAllocator, 0, sizeof(GLFWallocator));
+      |         ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\init.c:481:9: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+  481 |         memset(&_glfwInitAllocator, 0, sizeof(GLFWallocator));
+      |         ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\input.c:166:5: warning: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  166 |     memcpy(mapping->guid, c, length);
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\input.c:166:5: note: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11
+  166 |     memcpy(mapping->guid, c, length);
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\input.c:176:5: warning: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  176 |     memcpy(mapping->name, c, length);
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\input.c:176:5: note: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11
+  176 |     memcpy(mapping->name, c, length);
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\input.c:528:5: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  528 |     strncpy(js->name, name, sizeof(js->name) - 1);
+      |     ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\input.c:528:5: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+  528 |     strncpy(js->name, name, sizeof(js->name) - 1);
+      |     ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\input.c:529:5: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  529 |     strncpy(js->guid, guid, sizeof(js->guid) - 1);
+      |     ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\input.c:529:5: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+  529 |     strncpy(js->guid, guid, sizeof(js->guid) - 1);
+      |     ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\input.c:542:5: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  542 |     memset(js, 0, sizeof(_GLFWjoystick));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\input.c:542:5: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+  542 |     memset(js, 0, sizeof(_GLFWjoystick));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\input.c:1276:17: warning: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+ 1276 |                 memcpy(line, c, length);
+      |                 ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\input.c:1276:17: note: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11
+ 1276 |                 memcpy(line, c, length);
+      |                 ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\input.c:1382:5: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+ 1382 |     memset(state, 0, sizeof(GLFWgamepadstate));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\input.c:1382:5: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+ 1382 |     memset(state, 0, sizeof(GLFWgamepadstate));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\monitor.c:110:13: warning: Call to function 'memmove' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memmove_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  110 |             memmove(_glfw.monitors + 1,
+      |             ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\monitor.c:110:13: note: Call to function 'memmove' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memmove_s' in case of C11
+  110 |             memmove(_glfw.monitors + 1,
+      |             ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\monitor.c:140:17: warning: Call to function 'memmove' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memmove_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  140 |                 memmove(_glfw.monitors + i,
+      |                 ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\monitor.c:140:17: note: Call to function 'memmove' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memmove_s' in case of C11
+  140 |                 memmove(_glfw.monitors + i,
+      |                 ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\monitor.c:177:5: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  177 |     strncpy(monitor->name, name, sizeof(monitor->name) - 1);
+      |     ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\monitor.c:177:5: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+  177 |     strncpy(monitor->name, name, sizeof(monitor->name) - 1);
+      |     ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\monitor.c:216:5: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  216 |     memset(ramp, 0, sizeof(GLFWgammaramp));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\monitor.c:216:5: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+  216 |     memset(ramp, 0, sizeof(GLFWgammaramp));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\null_init.c:124:5: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  124 |     memset(_glfw.null.keycodes, -1, sizeof(_glfw.null.keycodes));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\null_init.c:124:5: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+  124 |     memset(_glfw.null.keycodes, -1, sizeof(_glfw.null.keycodes));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\null_init.c:125:5: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  125 |     memset(_glfw.null.scancodes, -1, sizeof(_glfw.null.scancodes));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\null_init.c:125:5: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+  125 |     memset(_glfw.null.scancodes, -1, sizeof(_glfw.null.scancodes));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\null_monitor.c:141:5: warning: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  141 |     memcpy(ramp->red,   monitor->null.ramp.red,   sizeof(short) * ramp->size);
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\null_monitor.c:141:5: note: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11
+  141 |     memcpy(ramp->red,   monitor->null.ramp.red,   sizeof(short) * ramp->size);
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\null_monitor.c:142:5: warning: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  142 |     memcpy(ramp->green, monitor->null.ramp.green, sizeof(short) * ramp->size);
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\null_monitor.c:142:5: note: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11
+  142 |     memcpy(ramp->green, monitor->null.ramp.green, sizeof(short) * ramp->size);
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\null_monitor.c:143:5: warning: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  143 |     memcpy(ramp->blue,  monitor->null.ramp.blue,  sizeof(short) * ramp->size);
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\null_monitor.c:143:5: note: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11
+  143 |     memcpy(ramp->blue,  monitor->null.ramp.blue,  sizeof(short) * ramp->size);
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\null_monitor.c:156:5: warning: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  156 |     memcpy(monitor->null.ramp.red,   ramp->red,   sizeof(short) * ramp->size);
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\null_monitor.c:156:5: note: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11
+  156 |     memcpy(monitor->null.ramp.red,   ramp->red,   sizeof(short) * ramp->size);
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\null_monitor.c:157:5: warning: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  157 |     memcpy(monitor->null.ramp.green, ramp->green, sizeof(short) * ramp->size);
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\null_monitor.c:157:5: note: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11
+  157 |     memcpy(monitor->null.ramp.green, ramp->green, sizeof(short) * ramp->size);
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\null_monitor.c:158:5: warning: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  158 |     memcpy(monitor->null.ramp.blue,  ramp->blue,  sizeof(short) * ramp->size);
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\null_monitor.c:158:5: note: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11
+  158 |     memcpy(monitor->null.ramp.blue,  ramp->blue,  sizeof(short) * ramp->size);
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_init.c:202:5: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  202 |     memset(_glfw.win32.keycodes, -1, sizeof(_glfw.win32.keycodes));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_init.c:202:5: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+  202 |     memset(_glfw.win32.keycodes, -1, sizeof(_glfw.win32.keycodes));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_init.c:203:5: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  203 |     memset(_glfw.win32.scancodes, -1, sizeof(_glfw.win32.scancodes));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_init.c:203:5: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+  203 |     memset(_glfw.win32.scancodes, -1, sizeof(_glfw.win32.scancodes));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_init.c:521:5: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  521 |     memset(_glfw.win32.keynames, 0, sizeof(_glfw.win32.keynames));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_init.c:521:5: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+  521 |     memset(_glfw.win32.keynames, 0, sizeof(_glfw.win32.keynames));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_joystick.c:233:9: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  233 |         memset(name, 0, sizeof(name));
+      |         ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_joystick.c:233:9: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+  233 |         memset(name, 0, sizeof(name));
+      |         ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_joystick.c:417:5: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  417 |     memset(&data, 0, sizeof(data));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_joystick.c:417:5: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+  417 |     memset(&data, 0, sizeof(data));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_joystick.c:455:9: warning: Call to function 'sprintf' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'sprintf_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  455 |         sprintf(guid, "03000000%02x%02x0000%02x%02x000000000000",
+      |         ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_joystick.c:455:9: note: Call to function 'sprintf' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'sprintf_s' in case of C11
+  455 |         sprintf(guid, "03000000%02x%02x0000%02x%02x000000000000",
+      |         ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_joystick.c:463:9: warning: Call to function 'sprintf' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'sprintf_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  463 |         sprintf(guid, "05000000%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x00",
+      |         ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_joystick.c:463:9: note: Call to function 'sprintf' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'sprintf_s' in case of C11
+  463 |         sprintf(guid, "05000000%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x00",
+      |         ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_joystick.c:526:13: warning: Call to function 'sprintf' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'sprintf_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  526 |             sprintf(guid, "78696e707574%02x000000000000000000",
+      |             ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_joystick.c:526:13: note: Call to function 'sprintf' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'sprintf_s' in case of C11
+  526 |             sprintf(guid, "78696e707574%02x000000000000000000",
+      |             ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_joystick.c:760:9: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  760 |         strncpy(original, guid, sizeof(original) - 1);
+      |         ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_joystick.c:760:9: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+  760 |         strncpy(original, guid, sizeof(original) - 1);
+      |         ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_joystick.c:761:9: warning: Call to function 'sprintf' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'sprintf_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  761 |         sprintf(guid, "03000000%.4s0000%.4s000000000000",
+      |         ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_joystick.c:761:9: note: Call to function 'sprintf' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'sprintf_s' in case of C11
+  761 |         sprintf(guid, "03000000%.4s0000%.4s000000000000",
+      |         ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_monitor.c:148:9: warning: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  148 |         memcpy(disconnected,
+      |         ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_monitor.c:148:9: note: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11
+  148 |         memcpy(disconnected,
+      |         ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_monitor.c:507:5: warning: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  507 |     memcpy(ramp->red,   values[0], sizeof(values[0]));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_monitor.c:507:5: note: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11
+  507 |     memcpy(ramp->red,   values[0], sizeof(values[0]));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_monitor.c:508:5: warning: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  508 |     memcpy(ramp->green, values[1], sizeof(values[1]));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_monitor.c:508:5: note: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11
+  508 |     memcpy(ramp->green, values[1], sizeof(values[1]));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_monitor.c:509:5: warning: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  509 |     memcpy(ramp->blue,  values[2], sizeof(values[2]));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_monitor.c:509:5: note: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11
+  509 |     memcpy(ramp->blue,  values[2], sizeof(values[2]));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_monitor.c:526:5: warning: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  526 |     memcpy(values[0], ramp->red,   sizeof(values[0]));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_monitor.c:526:5: note: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11
+  526 |     memcpy(values[0], ramp->red,   sizeof(values[0]));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_monitor.c:527:5: warning: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  527 |     memcpy(values[1], ramp->green, sizeof(values[1]));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_monitor.c:527:5: note: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11
+  527 |     memcpy(values[1], ramp->green, sizeof(values[1]));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_monitor.c:528:5: warning: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  528 |     memcpy(values[2], ramp->blue,  sizeof(values[2]));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_monitor.c:528:5: note: Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11
+  528 |     memcpy(values[2], ramp->blue,  sizeof(values[2]));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_thread.c:58:5: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+   58 |     memset(tls, 0, sizeof(_GLFWtls));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_thread.c:58:5: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+   58 |     memset(tls, 0, sizeof(_GLFWtls));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_thread.c:84:5: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+   84 |     memset(mutex, 0, sizeof(_GLFWmutex));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_thread.c:84:5: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+   84 |     memset(mutex, 0, sizeof(_GLFWmutex));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_window.c:2561:5: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+ 2561 |     memset(&sci, 0, sizeof(sci));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\win32_window.c:2561:5: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+ 2561 |     memset(&sci, 0, sizeof(sci));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\window.c:261:5: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  261 |     memset(&_glfw.hints.context, 0, sizeof(_glfw.hints.context));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\window.c:261:5: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+  261 |     memset(&_glfw.hints.context, 0, sizeof(_glfw.hints.context));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\window.c:268:5: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  268 |     memset(&_glfw.hints.window, 0, sizeof(_glfw.hints.window));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\window.c:268:5: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+  268 |     memset(&_glfw.hints.window, 0, sizeof(_glfw.hints.window));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\window.c:282:5: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  282 |     memset(&_glfw.hints.framebuffer, 0, sizeof(_glfw.hints.framebuffer));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\window.c:282:5: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+  282 |     memset(&_glfw.hints.framebuffer, 0, sizeof(_glfw.hints.framebuffer));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\window.c:448:13: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  448 |             strncpy(_glfw.hints.window.ns.frameName, value,
+      |             ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\window.c:448:13: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+  448 |             strncpy(_glfw.hints.window.ns.frameName, value,
+      |             ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\window.c:452:13: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  452 |             strncpy(_glfw.hints.window.x11.className, value,
+      |             ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\window.c:452:13: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+  452 |             strncpy(_glfw.hints.window.x11.className, value,
+      |             ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\window.c:456:13: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  456 |             strncpy(_glfw.hints.window.x11.instanceName, value,
+      |             ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\window.c:456:13: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+  456 |             strncpy(_glfw.hints.window.x11.instanceName, value,
+      |             ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\window.c:460:13: warning: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  460 |             strncpy(_glfw.hints.window.wl.appId, value,
+      |             ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\window.c:460:13: note: Call to function 'strncpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'strncpy_s' in case of C11
+  460 |             strncpy(_glfw.hints.window.wl.appId, value,
+      |             ^~~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\window.c:479:5: warning: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11 [clang-analyzer-security.insecureAPI.DeprecatedOrUnsafeBufferHandling]
+  479 |     memset(&window->callbacks, 0, sizeof(window->callbacks));
+      |     ^~~~~~
+C:\Users\HP\Source\Repos\PiratesEngineCorporation\glfw-3.4\src\window.c:479:5: note: Call to function 'memset' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memset_s' in case of C11
+  479 |     memset(&window->callbacks, 0, sizeof(window->callbacks));
+      |     ^~~~~~
+Suppressed 18 warnings (18 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

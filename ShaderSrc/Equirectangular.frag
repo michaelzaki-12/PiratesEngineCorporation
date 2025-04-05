@@ -1,6 +1,7 @@
 #version 460 core
 
-out vec4 FragColor;
+layout(location = 0) out vec4 FragColor;
+layout(location = 1) out vec4 BrightColor;
 in vec3 TexCoord;
 
 uniform sampler2D equirectangularMap;
@@ -19,5 +20,11 @@ void main()
     vec2 uv = SampleSphericalMap(normalize(TexCoord)); // make sure to normalize localPos
     vec3 color = texture(equirectangularMap, uv).rgb;
     
+    float brightness = dot(color.rgb, vec3(0.2126, 0.7152, 0.0722));
     FragColor = vec4(color, 1.0);
+
+    if(brightness > 1.0)
+        BrightColor = vec4(0.0, 0.0, 0.0, 1.0);
+	else
+		BrightColor = vec4(0.0, 0.0, 0.0, 1.0);
 }

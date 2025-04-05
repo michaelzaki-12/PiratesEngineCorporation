@@ -1,7 +1,7 @@
 #include "Shader.h"
 #include <fstream>
 
-static std::string get_file_contents(const char* filename)
+std::string Shader::get_file_contents(const char* filename)
 {
     std::ifstream in(filename, std::ios::binary);
     if (in)
@@ -115,13 +115,25 @@ void Shader::setVec2(const std::string& name, float x, float y) const
 {
     glUniform2f(glGetUniformLocation(ID, name.c_str()), x, y);
 }
+void Shader::setUVec2(const std::string& name, unsigned int x, unsigned int y) const
+{
+    glUniform2ui(glGetUniformLocation(ID, name.c_str()), x, y);
+}
 void Shader::setVec3(const std::string& name,glm::vec3 v) const
 {
     glUniform3f(glGetUniformLocation(ID, name.c_str()), v.x, v.y, v.z);
 }
+void Shader::setUVec3(const std::string& name, glm::uvec3 v) const
+{
+    glUniform3ui(glGetUniformLocation(ID, name.c_str()), v.x, v.y, v.z);
+}
 void Shader::setVec4(const std::string& name, float x, float y, float z, float w) const
 {
     glUniform4f(glGetUniformLocation(ID, name.c_str()), x, y, z, w);
+}
+void Shader::setVec4(const std::string& name, glm::vec4 v) const
+{
+    glUniform4f(glGetUniformLocation(ID, name.c_str()), v.x, v.y, v.z, v.w);
 }
 // ------------------------------------------------------------------------
 void Shader::setMat2(const std::string& name, const glm::mat2 mat) const
